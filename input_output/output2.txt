@@ -1,0 +1,38 @@
+Enter no of serveices: Enter no of worker node: Enter priority_level and resource
+Enter no of worker node: Enter priority_level and resource
+Enter no of worker node: Enter priority_level and resource
+Enter no of requests: Enter transaction_type and resource_required
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~: Request Processed :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+	Req_id	start_time	end_time	burst_time	wating_time	turn_around_time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	2	1691928078	1691928081	3		0		3
+	4	1691928078	1691928081	3		0		3
+	3	1691928078	1691928081	3		0		3
+	5	1691928078	1691928081	3		0		3
+	7	1691928078	1691928081	3		0		3
+	6	1691928078	1691928081	3		0		3
+	15	1691928078	1691928084	3		3		6
+	10	1691928078	1691928084	3		3		6
+	12	1691928078	1691928084	3		3		6
+	11	1691928078	1691928084	3		3		6
+	9	1691928078	1691928087	3		6		9
+	13	1691928078	1691928087	3		6		9
+	14	1691928078	1691928087	3		6		9
+	8	1691928078	1691928090	3		9		12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		Average Waiting Time: 2.786
+		Average Turn Around Time: 5.786
+
+		Request Rejected: 1
+		Request force wait: 4
+		Request Blocked: 5
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
