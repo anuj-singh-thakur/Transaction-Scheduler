@@ -1,6 +1,5 @@
 # Distributed Transaction Scheduler
-In this project, our goal is to effectively manage transactions across multiple servers while optimizing resource utilization to ensure smooth customer interactions.
-
+In this project, our goal is to implement a Scheduling Algorithm to simulate the behavior of efficiently allocating resources to worker threads responsible for processing incoming requests. Used Pthread API to implement Multithreading
 
 ### Project Overview
 
