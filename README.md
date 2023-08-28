@@ -1,5 +1,5 @@
 # Distributed Transaction Scheduler
-In this project, our goal is to implement a Scheduling Algorithm to simulate the behavior of efficiently allocating resources to worker threads responsible for processing incoming requests.
+In this project, our goal is to implement a Scheduling Algorithm to simulate the behavior of efficiently allocating worker thread resources to incoming requests based on transaction type and priority levels. Implemented **Multithreading** using **pthread API**.
 
 ### Project Overview
 
