@@ -4,12 +4,12 @@ Steps to follow to execute Question3.cpp
 1) makefile and Question3.cpp should be present in the same directory.
 
 2) Open a terminal and navigate to the directory where the makefile 
-   and "Question3.cpp" are located.
+   and "DistributedTransactionScheduler.cpp" is located.
 
 3) Run the "make" command to build the program. This will compile "Question3.cpp"
    into object files and then link them to create an output binary named "Question3".
 
-4) Run "./Question3" command to execute "Question3.cpp"
+4) Run the "./DistributedTransactionScheduler" command to execute "DistributedTransactionScheduler.cpp"
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -18,9 +18,9 @@ input parameters: |
 -------------------
 
 n = enter no. of services
-m = enter no. of worker node for each services
+m = enter no. of worker node for each service
 
---> for each worker node enter priority_level and resource allocated.
+--> For each worker node enter priority_level and resource allocated.
 
 no_of_requests = enter no. of request
 
@@ -30,7 +30,7 @@ __________________
 sample test case:
 ~~~~~~~~~~~~~~~~~~
 
-Enter no of serveices: 1
+Enter no of services: 1
 Enter no of worker node: 2
 Enter priority_level and resource
 4 6
