@@ -6,12 +6,12 @@ In this project, our goal is to implement a Scheduling Algorithm to simulate the
 * The platform operates on a **distributed system** consisting of multiple servers, each running specific services for different types of transactions.
 * Services are comprised of worker threads responsible for processing incoming requests. Worker threads have priority levels and allocated resources, impacting their processing capacity.
 * Requests are queued and directed to the appropriate service and worker thread based on transaction type and priority.
-* Our challenge is to design a **scheduling algorithm** that efficiently allocates resources to worker threads for processing requests.
+* Our challenge is to design a **scheduling algorithm** that efficiently allocates worker threads for processing requests.
 
 ### Algorithm Factors
 
 * Prioritize worker threads based on their priority levels.
-* Allocate resources considering worker thread availability.
+* Allocate requests considering worker thread availability.
 * Account for the varying resource requirements of different transaction types.
 
 ### Input Format
