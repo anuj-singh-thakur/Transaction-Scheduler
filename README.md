@@ -1,9 +1,9 @@
-# Distributed Transaction Scheduler
-In this project, our goal is to implement a Scheduling Algorithm to simulate the behavior of efficiently allocating worker thread resources to incoming requests based on transaction type and priority levels. Implemented **Multithreading** using **pthread API**.
+#  Transaction Scheduler
+In this project, our goal is to implement a Scheduling Algorithm to simulate the behavior of efficiently allocating worker thread resources to incoming requests based on transaction type and priority levels. We implemented **Multithreading** using **pthread API**.
 
 ### Project Overview
 
-* The platform operates on a **distributed system** consisting of multiple servers, each running specific services for different types of transactions.
+* The platform consists of multiple worker nodes, each running specific services for different types of transactions.
 * Services are comprised of worker threads responsible for processing incoming requests. Worker threads have priority levels and allocated resources, impacting their processing capacity.
 * Requests are queued and directed to the appropriate service and worker thread based on transaction type and priority.
 * Our challenge is to design a **scheduling algorithm** that efficiently allocates worker threads for processing requests.
