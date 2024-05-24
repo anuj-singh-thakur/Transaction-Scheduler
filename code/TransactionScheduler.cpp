@@ -1,9 +1,9 @@
 /*
-* Implementation: In this project, our goal is to effectively manage transactions across
-*	              multiple servers while optimizing resource utilization to ensure 
-*				  smooth customer interactions.
+* Implementation: In this project, our goal is to manage transactions across
+*	          multiple servers effectively while optimizing resource utilization to ensure 
+*		  smooth customer interactions.
 *
-* Scheduling Process in Distributed System.
+* 
 */
 
 
@@ -16,9 +16,9 @@ using namespace std;
 * 
 *   int req_id --> unique id for each request
 *   int transaction_type --> service type required to execute each request
-*	int resource_required --> no of resource required
-*	int worker_id;  --> to know which worker executed this request
-*	time_t start_time,end_time,burst_time --> start,end and burst time of a request  
+*   int resource_required --> no of resource required
+*   int worker_id;  --> to know which worker executed this request
+*   time_t start_time,end_time,burst_time --> start, end and burst time of a request  
 *
 */
 typedef struct{
@@ -31,7 +31,7 @@ typedef struct{
 
 /*  Worker Node:
 *
-*   int worker_id;  --> unique worker id
+*       int worker_id;  --> unique worker id
 *	int priority_level --> priority level of worker node
 *	int total_resource; --> total resource assigned to each worker node
 *	int available_resource; --> used during execution of worker node.
@@ -68,7 +68,7 @@ typedef struct{
 
 /*  Execution Node: --> Store Global Information 
  *	
- *  vector<Request*> executed_request ---> used to store request in which order it's processed.
+ *      vector<Request*> executed_request ---> used to store request in which order it's processed.
  *	pthread_mutex_t mtx; ---> mutex to access Execution node synchronously 
  *	int request_rejected;  --> used to store rejected count 
  *	int request_forced_wait; --> used to store forced request count 
@@ -93,8 +93,8 @@ bool comparator(const WorkerNode& wt1, const WorkerNode& wt2) {
 }
 
 /*
-*  workerFunction: sleep this function based on the burst time of a request and then release the resource acquired by given request;
-*			       and update the request in global execution node.
+*  worker function: sleep this function based on the burst time of a request and then release the resource acquired by given request;
+*			       and update the request in the global execution node.
 *
 *  @param: WorkerNode *workerNode  ---> worker node pointer 
 *  @param: Request *request		  ---> Request node pointer
@@ -119,8 +119,8 @@ void workerFunction(WorkerNode *workerNode,Request *request){
 
 
 /*
-*  serviceFunction: handle all the requests available in the queue and accordingly assign the available worker node based on the priority of 
-*					worker node.( once we select worker node based on the resource requirement then we execute another thread which processed this request.)	
+*  service function: handle all the requests available in the queue and accordingly assign the available worker node based on the priority of 
+*					worker node. ( once we select a worker node based on the resource requirement then we execute another thread which processed this request.)	
 *
 *  @param: Service *service ---> service pointer which contains all the necessary information.
 *
@@ -142,7 +142,7 @@ void serviceFunction(Service *service){
 	
 	while(true){
 		/*
-		* Reading all the flag variable from service node. 
+		* Reading all the flag variables from the service node. 
 		*
 		*/
 		pthread_mutex_lock(&service->mtx);
@@ -190,7 +190,7 @@ void serviceFunction(Service *service){
 							req_ptr->end_time = request.end_time;
 						}
 						/*
-						*  Running worker thread to fullfill current request. 
+						*  Running worker thread to fulfill the current request. 
 						* 
  						*/
 						thread t(workerFunction,&workerNode,req_ptr);
@@ -207,7 +207,7 @@ void serviceFunction(Service *service){
 					}
 					
 					/*
-					*  blocked request again pushing back into queue.
+					*  blocked request again pushing back into the queue.
 					*/
 					pthread_mutex_lock(&service->mtx);
 					service->service_queue.push(request);
@@ -216,7 +216,7 @@ void serviceFunction(Service *service){
 			}
 		}
 		/*
-		* Exit the current thread when exit_flag is on and queue is empty.
+		* Exit the current thread when exit_flag is on and the queue is empty.
 		*   
 		*/
 		if(exit_flag && empty_flag){
@@ -231,7 +231,7 @@ void serviceFunction(Service *service){
 		t.join();
 	}
 	/* 
-	*  updatin all the local variable count in gloabal variable.
+	*  updating all the local variable counts in the global variable.
 	*
 	*/
 	pthread_mutex_lock(&execution.mtx);
@@ -244,7 +244,7 @@ void serviceFunction(Service *service){
 
 int main(){
 	int n=0;
-	cout<<"Enter no of serveices: ";
+	cout<<"Enter no of services: ";
 	cin>>n;
 	Service service[n];
 	
@@ -268,7 +268,7 @@ int main(){
 			max_resource = max(max_resource,resource);
 
 			/*
-			*  Initializing worker Node with given input.
+			*  Initializing worker Node with the given input.
 			*/
 			service[i].WorkerNodeVector[j].worker_id = j+1;
 			service[i].WorkerNodeVector[j].priority_level = priority_level;
@@ -295,7 +295,7 @@ int main(){
 	cout<<"Enter transaction_type and resource_required\n";
 	for(int i=0;i<no_of_requests;i++){
 		/* 
-		*  Reading Request requirements and creating request node.	
+		*  Reading Request requirements and creating request nodes.	
 		*/	
 		cin>>transaction_type>>resource_required;
 		Request request;
@@ -307,7 +307,7 @@ int main(){
 		requests.push(request);	
 	}
 	/*
-	* Initializing Execution node which contains summary of request execution.
+	* Initializing Execution node which contains a summary of request execution.
 	*/	
 
 	pthread_mutex_init(&execution.mtx, NULL);
@@ -316,7 +316,7 @@ int main(){
 	execution.request_blocked=0;
 	
 	/*
-	* starting all the service and assinging their respective service node.
+	* starting all the services and assigning their respective service node.
 	*/	
 	vector<thread> threads;
 	
@@ -325,7 +325,7 @@ int main(){
 		threads.push_back(move(t));
 	}
 	/*
-	* Reading each request and assigning to the appropriate Service node.
+	* Reading each request and assigning it to the appropriate Service node.
  	*/
 	while(!requests.empty()){
 		Request r = requests.front();
@@ -342,7 +342,7 @@ int main(){
 		pthread_mutex_unlock(&service[r.transaction_type].mtx);
 	}
 	/*
-	*  Making stop_service_flag to true so all the service can start exiting their
+	*  Making stop_service_flag to true so all the services can start exiting their
 	*  execution.
 	*/
 	for(int i=0;i<n;i++){
@@ -351,14 +351,14 @@ int main(){
 		pthread_mutex_unlock(&service[i].mtx);
 	}
 	/*
-	* waiting until all the thread join the main thread.
+	* waiting until all the threads join the main thread.
 	*/
 	for(auto& t: threads){
 		t.join();
 	}	
 	
 	/*
-	*  showing summary of the execution.
+	*  showing the summary of the execution.
 	*/
 
 
